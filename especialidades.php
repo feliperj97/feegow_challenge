@@ -14,7 +14,7 @@ $dataEspec = json_decode($reqEspec);
 
 //lista especialidades
 for ($i=0; $i < count($dataEspec->content) ; $i++) { 
-    print_r($dataEspec->content[$i]->nome);
+    echo $dataEspec->content[$i]->especialidade_id . ";" . $dataEspec->content[$i]->nome;
     echo "<br>";
 }
 

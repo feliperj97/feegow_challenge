@@ -21,22 +21,29 @@ $curl = curl_init();
     $dataEspec = json_decode($reqEspec);
     $dataProf = json_decode($reqProf);
 
-   // print_r(array_keys($dataProf->content));
-   
-    echo "<br>";
+   /* print_r(array_keys($dataProf->content[50]->especialidades));
+   echo "<br>";
+    print_r($dataProf->content[50]->especialidades[0]->especialidade_id);
+    echo "<br>"; */
     //lista especialidades
-    for ($i=0; $i < count($dataEspec->content) ; $i++) { 
+    /* for ($i=0; $i < count($dataEspec->content) ; $i++) { 
         print_r($dataEspec->content[$i]->nome);
         echo "<br>";
-    }
+    } */
 
     for ($i=0; $i < count($dataProf->content) ; $i++) { 
+        for($e=0; $e<count($dataProf->content[$i]->especialidades); $e++){          
+
         if(isset($dataProf->content[$i]->nome)){
-            echo $dataProf->content[$i]->nome . " " . $dataProf->content[$i]->documento_conselho;
+            echo $dataProf->content[$i]->nome . ";" . $dataProf->content[$i]->documento_conselho . ";" . $dataProf->content[$i]->especialidades[$e]->especialidade_id;
             echo "<br>";
         }
        
+
+        }
+
     }
+
     
     
     //echo $data->content->especialidade_id;

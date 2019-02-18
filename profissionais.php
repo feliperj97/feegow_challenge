@@ -13,12 +13,12 @@ $reqProf = curl_exec($curl);
     
 $dataProf = json_decode($reqProf);
 
-for ($i=0; $i < count($dataProf->content) ; $i++) { 
+/* for ($i=0; $i < count($dataProf->content) ; $i++) {
     if(isset($dataProf->content[$i]->nome)){
     echo $dataProf->content[$i]->nome . " - " . $dataProf->content[$i]->documento_conselho . " - " . $dataProf->content[$i]->especialidade_id;
         echo "<br>";
     }
    
-}
+} */
 
 ?>

@@ -12,40 +12,33 @@
   </head>
   <body>
   <?php
-    require_once 'especialidades.php';
-    if(isset($_POST) && !empty($_POST)){
-        echo "<pre>";
-        print_r ($_POST);
-        echo "</pre>";
-      }
-    ?>
-  <div class="container">
-    <form class="form" method="post">
-    
-    <h2>Consulta de especialidade</h2>
-    <div class="form-row">
-   
-    
-    <div class="form-group col-md-6">
-      <select id="especialidade" name="especialidade" class="form-control">
-        <option selected>Selecione a especialidade</option>
-        <?php
+    require_once "profissionais.php";
+    for ($i=0; $i < count($dataProf->content) ; $i++) {
+        if(isset($dataProf->content[$i]->nome)){
+        /* echo $dataProf->content[$i]->nome . " - " . $dataProf->content[$i]->documento_conselho . " - " . $dataProf->content[$i]->especialidade_id;
+            echo "<br>"; */
         
-            for ($i=0; $i < count($dataEspec->content) ; $i++) { 
-                echo "<option>" . $dataEspec->content[$i]->nome . "</option>";
-                echo "<br>";
-            }
-        ?>
-      </select>
-     </div>
-      <div class="form-group col-md-6">
-        <button type="submit" class="btn btn-success">Agendar</button>
-      </div>
+    echo "<div class='card' style='width: 18rem;'>";
+    echo "<img src='...' class='card-img-top' alt='...'>";
+    echo "<div class='card-body'>";
+    echo "<h5 class='card-title'>" . $dataProf->content[$i]->nome . "</h5>";
+    echo "<p class='card-text'> CRM " . $dataProf->content[$i]->documento_conselho . "</p>";
+    echo "<a href='#' class='btn btn-primary'>Agendar</a>";
+    echo "</div>";
+    echo "</div>";
+    }
+}
+  
+  ?>
+  <!-- <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Agendar</a>
     </div>
-    
-    </div>
-    </form>
-    </div>
+  </div>
+ -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
